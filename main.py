@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import numpy as np
 from PIL import Image
 import pickle
+from collections import Counter
 
 import os
 import datetime as dt
@@ -67,7 +68,6 @@ def create():
             hex.append('%02x%02x%02x' % i)
 
     # ---Identify Most Frequently Used Hex Codes---#
-        from collections import Counter
         common_hex = Counter(hex)
         common_hex = common_hex.most_common(100000)
         common_hex = [hex[0] for hex in common_hex[::20000]]
